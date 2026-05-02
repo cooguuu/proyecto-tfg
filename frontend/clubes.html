@@ -2,31 +2,69 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Futbol Legacy | Clubes</title>
+    <title>Fútbol Emotion | Base de Datos de Clubes</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body id="page-clubes"> 
-
+<body id="page-clubes">
     <nav class="nav-principal">
         <ul>
             <li><a href="index.html">Inicio</a></li>
-            <li><a href="clubes.html" class="activo">Clubes</a></li>
             <li><a href="jugadores.html">Jugadores</a></li>
             <li><a href="estadisticas.html">Estadísticas</a></li>
+            <li><a href="clubes.html" class="activo">Clubes</a></li>
             <li><a href="fichajes.html">Fichajes</a></li>
         </ul>
     </nav>
 
-    <div class="contenedor">
-        <div class="tarjeta-neon">
-            <h1 class="titulo-naranja">ESTADÍSTICAS EN DIRECTO</h1>
-            
-            <div id="resultado-api" class="grid-api">
-                <p>Cargando datos de la API...</p>
-            </div>
-        </div>
-    </div>
+    <main class="contenedor-clubes">
+        <header class="tarjeta-neon" style="text-align: center; margin-bottom: 30px;">
+            <h1 class="titulo-naranja">Buscador Táctico 25/26</h1>
+            <p style="color: #00f3ff; text-shadow: 0 0 8px rgba(0, 243, 255, 0.6); font-size: 1.2rem;">Simulador de plantillas y alineaciones oficiales</p>
+        </header>
 
-    <script src="app.js"></script>
+        <section class="panel-busqueda">
+            <div class="selectores">
+                <select id="select-liga" onchange="actualizarEquipos()">
+                    <option value="">-- Elige una Liga --</option>
+                    <option value="laliga">LaLiga EA Sports</option>
+                    <option value="premier">Premier League</option>
+                    <option value="bundesliga">Bundesliga</option>
+                    <option value="seriea">Serie A</option>
+                    <option value="ligue1">Ligue 1</option>
+                </select>
+
+                <select id="select-equipo" disabled>
+                    <option value="">-- Primero elige una liga --</option>
+                </select>
+
+                <button id="btn-cargar" onclick="cargarEquipo()">Cargar Plantilla ➔</button>
+            </div>
+        </section>
+
+        <section id="pantalla-equipo" style="display: none;">
+            
+            <div class="cabecera-equipo">
+                <img id="img-liga" src="" alt="Liga" class="icono-liga">
+                <div class="info-titulo-equipo">
+                    <h2 id="nombre-equipo">Nombre del Equipo</h2>
+                    <p>Entrenador: <span id="nombre-entrenador" style="color: #ff00e6;"></span> | Formación: <span id="formacion-equipo" style="color: #00f3ff;"></span></p>
+                </div>
+                <img id="img-escudo" src="" alt="Escudo" class="icono-escudo">
+            </div>
+
+            <div class="contenedor-simulador">
+                <div class="campo-futbol" id="campo-tactico">
+                    </div>
+
+                <div class="panel-banquillo">
+                    <h3 style="color: #00f3ff; border-bottom: 1px solid #00f3ff; padding-bottom: 10px;">Suplentes</h3>
+                    <ul id="lista-suplentes">
+                        </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="bd_clubes.js"></script>
 </body>
 </html>

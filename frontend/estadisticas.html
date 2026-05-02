@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Futbol Legacy | Estadísticas</title>
+    <title>Fútbol Emotion | Estadísticas</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body id="page-estadisticas"> 
@@ -17,15 +17,74 @@
         </ul>
     </nav>
 
-    <div class="contenedor">
-        <div class="tarjeta-neon">
-            <h1 class="titulo-naranja">ESTADÍSTICAS EN DIRECTO</h1>
+    <main class="contenedor-vertical-inicio">
+        
+        <header class="tarjeta-neon">
+            <h1 class="titulo-naranja">ESTADÍSTICAS MUNDIALES</h1>
+            <p style="color: #00f3ff; text-shadow: 0 0 8px rgba(0, 243, 255, 0.6); font-size: 1.2rem; text-align: center;"></p>Clasificaciones individuales actualizadas de las grandes ligas.</p>
+        </header>
+
+        <div class="contenedor-tablas">
             
-            <div id="resultado-api" class="grid-api">
-                <p>Cargando datos de la API...</p>
+            <div class="tarjeta-tabla">
+                <h2 class="titulo-tabla">⚽ Máximos Goleadores</h2>
+                <table class="tabla-stats">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Club</th>
+                            <th>Goles</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><a href="https://www.transfermarkt.es/schnellsuche/ergebnis/schnellsuche?query=Harry+Kane" target="_blank">Harry Kane</a></td><td>Bayern Munich</td><td>53</td></tr>
+                        <tr><td><a href="https://www.transfermarkt.es/schnellsuche/ergebnis/schnellsuche?query=Kylian+Mbappe" target="_blank">Kylian Mbappé</a></td><td>Real Madrid</td><td>40</td></tr>
+                        <tr><td><a href="https://www.transfermarkt.es/schnellsuche/ergebnis/schnellsuche?query=Erling+Haaland" target="_blank">Erling Haaland</a></td><td>Man. City</td><td>32</td></tr>
+                        <tr><td><a href="https://www.transfermarkt.es/schnellsuche/ergebnis/schnellsuche?query=Igor+Thiago" target="_blank">Igor Thiago</a></td><td>Brentford</td><td>21</td></tr>
+                    </tbody>
+                </table>
             </div>
+
+            <div class="tarjeta-tabla">
+                <h2 class="titulo-tabla">🎯 Máximos Asistentes</h2>
+                <table class="tabla-stats">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Club</th>
+                            <th>Asistencias</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><a href="https://www.transfermarkt.es/schnellsuche/ergebnis/schnellsuche?query=Michael+Olise" target="_blank">Michael Olise</a></td><td>Bayern Munich</td><td>22</td></tr>
+                        <tr><td><a href="https://www.transfermarkt.es/schnellsuche/ergebnis/schnellsuche?query=Lamine+Yamal" target="_blank">Lamine Yamal</a></td><td>FC Barcelona</td><td>20</td></tr>
+                        <tr><td><a href="https://www.transfermarkt.es/schnellsuche/ergebnis/schnellsuche?query=Florian+Wirtz" target="_blank">Florian Wirtz</a></td><td>FC Liverpool</td><td>18</td></tr>
+                        <tr><td><a href="https://www.transfermarkt.es/schnellsuche/ergebnis/schnellsuche?query=Kevin+De+Bruyne" target="_blank">Kevin De Bruyne</a></td><td>Napoli</td><td>17</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="tarjeta-tabla">
+                <h2 class="titulo-tabla">🧤 Mejores Porteros</h2>
+                <table class="tabla-stats">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Club</th>
+                            <th>Ratio/P</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><a href="https://www.transfermarkt.es/schnellsuche/ergebnis/schnellsuche?query=David+Raya" target="_blank">David Raya</a></td><td>Arsenal</td><td>81.2%</td></tr>
+                        <tr><td><a href="https://www.transfermarkt.es/schnellsuche/ergebnis/schnellsuche?query=Gregor+Kobel" target="_blank">Gregor Kobel</a></td><td>B. Dortmund</td><td>79.5%</td></tr>
+                        <tr><td><a href="https://www.transfermarkt.es/schnellsuche/ergebnis/schnellsuche?query=Alisson+Becker" target="_blank">Alisson Becker</a></td><td>Liverpool</td><td>78.8%</td></tr>
+                        <tr><td><a href="https://www.transfermarkt.es/schnellsuche/ergebnis/schnellsuche?query=Thibaut+Courtois" target="_blank">Thibaut Courtois</a></td><td>Real Madrid</td><td>77.4%</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
         </div>
-    </div>
+    </main>
 
     <script src="app.js"></script>
 </body>

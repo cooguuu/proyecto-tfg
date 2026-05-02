@@ -2,31 +2,77 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Futbol Legacy | Fichajes</title>
+    <title>Fútbol Emotion | Mercado de Fichajes</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body id="page-fichajes"> 
-
+<body id="page-fichajes">
     <nav class="nav-principal">
         <ul>
             <li><a href="index.html">Inicio</a></li>
-            <li><a href="fichajes.html" class="activo">Fichajes</a></li>
             <li><a href="jugadores.html">Jugadores</a></li>
-            <li><a href="clubes.html">Clubes</a></li>
             <li><a href="estadisticas.html">Estadísticas</a></li>
+            <li><a href="clubes.html">Clubes</a></li>
+            <li><a href="fichajes.html" class="activo">Fichajes</a></li>
         </ul>
     </nav>
 
-    <div class="contenedor">
-        <div class="tarjeta-neon">
-            <h1 class="titulo-naranja">Fichajes</h1>
-            
-            <div id="resultado-api" class="grid-api">
-                <p>Cargando datos de la API...</p>
-            </div>
-        </div>
-    </div>
+    <main class="contenedor-clubes">
+        <header class="tarjeta-neon" style="text-align: center; margin-bottom: 30px;">
+            <h1 class="titulo-naranja">Mercado de Fichajes</h1>
+            <p style="color: #00f3ff; text-shadow: 0 0 8px rgba(0, 243, 255, 0.6); font-size: 1.2rem;">Rumores, confirmaciones y exclusivas</p>
+        </header>
 
-    <script src="app.js"></script>
+        <!-- NOTICIA PRINCIPAL (Usando la tarjeta que ya creamos) -->
+        <h2 class="titulo-tabla">💣 El Bombazo del Día</h2>
+        <article class="noticia-destacada-estatica card-noticia">
+            <div class="imagen-noticia">
+                <img src="imagenes/kylian.jpg" alt="Kylian Mbappé">
+            </div>
+            <div class="contenido-noticia">
+                <span class="etiqueta-urgente" style="background-color: #ff00e6;">OFICIAL</span>
+                <h3>Detalles del contrato de Mbappé</h3>
+                <p>Las cifras reales de la operación del siglo. Prima de fichaje, salario neto y derechos de imagen que manejará el jugador francés en su nueva etapa en España.</p>
+                <a href="https://www.marca.com/futbol/real-madrid.html" target="_blank" class="btn-noticia">Leer exclusiva en Marca ➔</a>
+            </div>
+        </article>
+
+        <!-- CARRUSEL DE RUMORES TIPO NETFLIX -->
+        <h2 class="titulo-tabla" style="margin-top: 50px;">🔄 Radar de Rumores</h2>
+        <div class="carrusel-rumores">
+            
+            <!-- Rumor 1 -->
+            <div class="card-rumor">
+                <span class="fuente-noticia" style="color: #00f3ff;">Transfermarkt</span>
+                <h4>Wirtz, el deseado</h4>
+                <p>El valor de Florian Wirtz alcanza los 130M€. Bayern y Real Madrid preparan ofertas récord para el verano de 2026.</p>
+                <a href="https://www.transfermarkt.es/" target="_blank">Ver valores ➔</a>
+            </div>
+
+            <!-- Rumor 2 -->
+            <div class="card-rumor">
+                <span class="fuente-noticia" style="color: #ff00e6;">Diario AS</span>
+                <h4>Revolución en la Premier</h4>
+                <p>El Manchester City busca sustituto para De Bruyne y el elegido juega en la Serie A. Se prepara una oferta de 90M€.</p>
+                <a href="https://as.com/futbol/internacional/" target="_blank">Sigue el rumor ➔</a>
+            </div>
+
+            <!-- Rumor 3 -->
+            <div class="card-rumor">
+                <span class="fuente-noticia" style="color: #00f3ff;">Transfermarkt</span>
+                <h4>Araújo y la Premier</h4>
+                <p>El central del Barça sigue en el radar del Manchester United. Los culés no negocian por menos de 80 millones.</p>
+                <a href="https://www.transfermarkt.es/" target="_blank">Ver perfil ➔</a>
+            </div>
+
+            <!-- Rumor 4 -->
+            <div class="card-rumor">
+                <span class="fuente-noticia" style="color: #ff00e6;">Marca</span>
+                <h4>¿Retorno de un grande?</h4>
+                <p>Zidane evalúa ofertas para volver a los banquillos. La selección francesa o un gigante de la Premier, posibles destinos.</p>
+                <a href="https://www.marca.com/" target="_blank">Última hora ➔</a>
+            </div>
+
+        </div>
+    </main>
 </body>
 </html>

@@ -1,112 +1,83 @@
-// --- CONFIGURACIÓN DE CONEXIÓN ---
-// Usamos '/api' porque el Proxy de Nginx redirige esto al contenedor 'football_api'
-const API_BASE_URL = '/api';
+// --- CONFIGURACIÓN DE TU API ---
+// Recuerda poner aquí tu Key real cuando la tengas (ej. de RapidAPI)
+const API_KEY = 'TU_CLAVE_API_AQUI'; 
+const API_HOST = 'v3.football.api-sports.io'; // O la que vayas a usar
 
+const requestOptions = {
+    method: 'GET',
+    headers: {
+        'x-rapidapi-key': API_KEY,
+        'x-rapidapi-host': API_HOST
+    }
+};
+
+// --- ENRUTADOR PRINCIPAL ---
+// Esperamos a que la página cargue completamente
 document.addEventListener('DOMContentLoaded', () => {
-    // Detectamos en qué página estamos leyendo el ID del body de tus HTML
+    
+    // Detectamos en qué página estamos leyendo el ID del body
     const pageId = document.body.id;
-    const contenedor = document.getElementById('resultado-api');
+    const contenedorResultados = document.getElementById('resultado-api');
 
-    if (!contenedor) return;
-
-    // Lógica de enrutamiento según la página
-    switch (pageId) {
-        case 'page-clubes':
-            cargarClubes(contenedor);
-            break;
-        case 'page-jugadores':
-            // Cargamos por defecto el equipo 1, o podrías añadir un selector
-            cargarJugadores(contenedor, 1); 
-            break;
-        case 'page-estadisticas':
-            cargarEventosVivo(contenedor, 1); // Carga eventos del partido 1
-            break;
-        case 'page-fichajes':
-            cargarMercado(contenedor);
-            break;
-        case 'page-inicio':
-            console.log("Futbol Legacy: Sistema listo.");
-            break;
+    if (pageId === 'page-estadisticas') {
+        cargarEstadisticas(contenedorResultados);
+    } else if (pageId === 'page-jugadores') {
+        cargarJugadores(contenedorResultados);
+    } else if (pageId === 'page-clubes') {
+        cargarClubes(contenedorResultados);
+    } else if (pageId === 'page-fichajes') {
+        cargarFichajes(contenedorResultados);
     }
 });
 
-// --- FUNCIONES DE CARGA DINÁMICA ---
+// --- FUNCIONES DE LLAMADA A LA API ---
 
-// 1. Cargar Clubes (Desde /api/equipos)
+async function cargarEstadisticas(contenedor) {
+    try {
+        // Ejemplo: Obtener fixtures (partidos) del día
+        // const response = await fetch(`https://${API_HOST}/fixtures?date=2024-05-15`, requestOptions);
+        // const data = await response.json();
+        
+        // Simulación visual mientras no tienes la Key puesta
+        contenedor.innerHTML = `
+            <div class="item-api">
+                <h3>Real Madrid vs Barcelona</h3>
+                <p>Posesión: 55% - 45%</p>
+                <p>Goles Esperados (xG): 1.5 - 1.2</p>
+            </div>
+             <div class="item-api">
+                <h3>Arsenal vs City</h3>
+                <p>Posesión: 40% - 60%</p>
+                <p>Goles Esperados (xG): 0.8 - 2.1</p>
+            </div>
+        `;
+    } catch (error) {
+        contenedor.innerHTML = `<p style="color: red;">Error al cargar estadísticas: ${error}</p>`;
+    }
+}
+
+async function cargarJugadores(contenedor) {
+    try {
+        // Ejemplo de Fetch real:
+        // const response = await fetch(`https://${API_HOST}/players/topscorers?league=140&season=2023`, requestOptions);
+        contenedor.innerHTML = `<div class="item-api"><h3>Datos de Jugadores</h3><p>Buscando máximos goleadores...</p></div>`;
+    } catch (error) {
+        console.error("Error:", error);
+    }
+}
+
 async function cargarClubes(contenedor) {
     try {
-        const res = await fetch(`${API_BASE_URL}/equipos`);
-        const data = await res.json();
-        let html = '';
-        data.forEach(e => {
-            html += `
-                <div class="item-api">
-                    <h3>${e.nombre}</h3>
-                    <p>🏟️ Estadio: ${e.estadio}</p>
-                    <p>📍 Ciudad: ${e.ciudad}</p>
-                </div>`;
-        });
-        contenedor.innerHTML = html;
-    } catch (err) {
-        contenedor.innerHTML = `<p>Error al conectar con el microservicio de equipos.</p>`;
+        contenedor.innerHTML = `<div class="item-api"><h3>Clasificación de Clubes</h3><p>Buscando tabla de LaLiga...</p></div>`;
+    } catch (error) {
+        console.error("Error:", error);
     }
 }
 
-// 2. Cargar Jugadores (Desde /api/jugadores/{id})
-async function cargarJugadores(contenedor, equipoId) {
+async function cargarFichajes(contenedor) {
     try {
-        const res = await fetch(`${API_BASE_URL}/jugadores/${equipoId}`);
-        const data = await res.json();
-        let html = '';
-        data.forEach(j => {
-            html += `
-                <div class="item-api">
-                    <h3>${j.nombre}</h3>
-                    <p>🏃 Posición: ${j.posicion}</p>
-                </div>`;
-        });
-        contenedor.innerHTML = html || '<p>No hay jugadores en este equipo.</p>';
-    } catch (err) {
-        contenedor.innerHTML = `<p>Error al obtener la plantilla.</p>`;
-    }
-}
-
-// 3. Cargar Eventos en Vivo (Para estadisticas.html)
-async function cargarEventosVivo(contenedor, partidoId) {
-    try {
-        // Esta ruta la definimos en el Backend para el "minuto a minuto"
-        const res = await fetch(`${API_BASE_URL}/partidos/${partidoId}/eventos`);
-        const data = await res.json();
-        let html = '';
-        data.forEach(ev => {
-            html += `
-                <div class="item-api">
-                    <p><strong>Minuto ${ev.minuto}'</strong>: ${ev.tipo}</p>
-                    <p>${ev.descripcion}</p>
-                </div>`;
-        });
-        contenedor.innerHTML = html || '<p>Esperando eventos del partido...</p>';
-    } catch (err) {
-        contenedor.innerHTML = `<p>Servicio de eventos en vivo no disponible.</p>`;
-    }
-}
-
-// 4. Cargar Mercado (Para fichajes.html)
-async function cargarMercado(contenedor) {
-    try {
-        const res = await fetch(`${API_BASE_URL}/mercado/recientes`);
-        const data = await res.json();
-        let html = '';
-        data.forEach(f => {
-            html += `
-                <div class="item-api">
-                    <h3>${f.jugador}</h3>
-                    <p>🔄 ${f.origen} ➡️ ${f.destino}</p>
-                    <p>💰 Coste: ${f.coste}M €</p>
-                </div>`;
-        });
-        contenedor.innerHTML = html || '<p>No hay fichajes recientes registrados.</p>';
-    } catch (err) {
-        contenedor.innerHTML = `<p>Error al cargar el mercado de fichajes.</p>`;
+        contenedor.innerHTML = `<div class="item-api"><h3>Últimos Fichajes</h3><p>Buscando mercado de transferencias...</p></div>`;
+    } catch (error) {
+        console.error("Error:", error);
     }
 }

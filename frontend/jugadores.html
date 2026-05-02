@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Futbol Legacy | Jugadores</title>
+    <title>Fútbol Emotion | Jugadores</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body id="page-jugadores"> 
@@ -17,15 +17,69 @@
         </ul>
     </nav>
 
-    <div class="contenedor">
-        <div class="tarjeta-neon">
+    <main class="contenedor-vertical-inicio">
+        
+        <header class="tarjeta-neon">
             <h1 class="titulo-naranja">Jugadores</h1>
+            <p style="color: #00f3ff; text-shadow: 0 0 8px rgba(0, 243, 255, 0.6); font-size: 1.2rem; text-align: center;"></p>Salón de la Fama y grandes estrellas.</p>
+        </header>
+
+        <div class="contenedor-tablas">
             
-            <div id="resultado-api" class="grid-api">
-                <p>Cargando datos de la API...</p>
+            <div class="tarjeta-tabla flex-con-logo">
+                <div class="logo-lateral">
+                    <img src="imagenes/logo-leyendas.png" alt="Logo Leyendas">
+                </div>
+                <div class="contenido-tabla">
+                    <h2 class="titulo-tabla">⭐ Iconos</h2>
+                    <table class="tabla-stats">
+                        <thead>
+                            <tr>
+                                <th>Equipo</th>
+                                <th>Nombre</th>
+                                <th>País</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Real Madrid/Juventus/Man United/Al Nasser</td><td><a href="cristiano.html" target="_blank">Cristiano Ronaldo</a></td><td>Portugal</td></tr>
+                            <tr><td>Real Madrid/Juventus/Francia</td><td><a href="zidane.html" target="_blank">Zinedine Zidane</a></td><td>Francia</td></tr>
+                            <tr><td>FC Barcelona/PSG</td><td><a href="messi.html" target="_blank">Lionel Messi</a></td><td>Argentina</td></tr>
+                            <tr><td>FC Barcelona/Milan/PSG</td><td><a href="ronaldinho.html" target="_blank">Ronaldinho</a></td><td>Brasil</td></tr>
+                            <tr><td>Santos FC</td><td><a href="pele.html" target="_blank">Pelé</a></td><td>Brasil</td></tr>
+                            <tr><td>FC Barcelona/Napoli/Argentina</td><td><a href="maradona.html" target="_blank">Diego Maradona</a></td><td>Argentina</td></tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
+
+            <div class="tarjeta-tabla flex-con-logo reverso">
+                <div class="logo-lateral">
+                    <img src="imagenes/logo-iconos.png" alt="Logo Iconos">
+                </div>
+                <div class="contenido-tabla">
+                    <h2 class="titulo-tabla">🏆 Leyendas Siglo XXI</h2>
+                    <table class="tabla-stats">
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Club Principal</th>
+                                <th>Hito / Logro</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><a href="iniesta.html" target="_blank">Andrés Iniesta</a></td><td>FC Barcelona</td><td>Gol Mundial 2010</td></tr>
+                            <tr><td><a href="modric.html" target="_blank">Luka Modrić</a></td><td>Real Madrid</td><td>Balón de Oro 2018</td></tr>
+                            <tr><td><a href="xavi.html" target="_blank">Xavi Hernández</a></td><td>FC Barcelona</td><td>Sextete Histórico</td></tr>
+                            <tr><td><a href="ramos.html" target="_blank">Sergio Ramos</a></td><td>Real Madrid</td><td>Gol La Décima</td></tr>
+                            <tr><td><a href="toni.html" target="_blank">Toni Kroos</a></td><td>Real Madrid</td><td>El Mago Silencioso</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
         </div>
-    </div>
+    </main>
+
     <script src="app.js"></script>
 </body>
 </html>

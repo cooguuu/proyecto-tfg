@@ -2,27 +2,54 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Futbol Legacy | Inicio</title>
+    <title>Fútbol Legacy | Inicio</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body id="page-inicio">
-
+    
+    <!-- BARRA DE NAVEGACIÓN -->
     <nav class="nav-principal">
         <ul>
             <li><a href="index.html" class="activo">Inicio</a></li>
-            <li><a href="estadisticas.html">Estadísticas</a></li>
             <li><a href="jugadores.html">Jugadores</a></li>
+            <li><a href="estadisticas.html">Estadísticas</a></li>
             <li><a href="clubes.html">Clubes</a></li>
             <li><a href="fichajes.html">Fichajes</a></li>
         </ul>
     </nav>
 
-    <div class="contenedor">
-        <header class="tarjeta-neon">
-            <h1 class="titulo-naranja">Futbol Legacy</h1>
-            <p style="color: var(--neon-verde); font-size: 1.2rem;">Bienvenido al sistema avanzado de datos y pronósticos.</p>
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="contenedor-clubes">
+        
+        <!-- CAJÓN PRINCIPAL (HERO) CORREGIDO -->
+        <header class="cajon-hero">
+            <h1 class="titulo-naranja" style="font-size: 3.5rem; margin-bottom: 10px;">FÚTBOL LEGACY</h1>
+            <p style="color: #00f3ff; text-shadow: 0 0 8px rgba(0, 243, 255, 0.6); font-size: 1.2rem; margin-bottom: 30px;">Bienvenido al sistema avanzado de datos y pronósticos.</p>
+            
+            <!-- BOTONES DE ACCIÓN -->
+            <div class="botones-hero">
+                <a href="jugadores.html" class="btn-hero-principal">Explorar Jugadores</a>
+                <a href="estadisticas.html" class="btn-hero-secundario">Ver Estadísticas</a>
+            </div>
         </header>
-    </div>
+
+        <!-- NOTICIA DESTACADA -->
+        <article class="noticia-destacada-estatica card-noticia">
+            <!-- Mitad de la Imagen -->
+            <div class="imagen-noticia">
+                <img src="imagenes/alnaser.jpg" alt="Cristiano Ronaldo Al Nassr">
+            </div>
+            
+            <!-- Mitad del Texto -->
+            <div class="contenido-noticia">
+                <span class="etiqueta-urgente">🔥 ÚLTIMA HORA</span>
+                <h3>CR7 rompe otro récord en Arabia Saudí</h3>
+                <p>El astro portugués alcanza los 50 goles en la temporada y demuestra que su olfato goleador sigue intacto. "El Bicho" sigue devorando récords en el fútbol asiático.</p>
+                <a href="https://as.com/futbol/" target="_blank" class="btn-noticia">Leer en Diario AS ➔</a>
+            </div>
+        </article>
+        
+    </main>
 
     <script src="app.js"></script>
 </body>
